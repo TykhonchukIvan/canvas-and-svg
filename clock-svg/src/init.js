@@ -7,10 +7,7 @@ function clockSvg(evt) {
     let secondsLine = document.querySelector("#secondsLine");
     let minutesLine = document.querySelector("#minutesLine");
     let hoursLine = document.querySelector("#hoursLine");
-    // let secondsLine = document.getElementById('secondsLine')
-    // let minutesLine = document.getElementById('secondsLine')
-    // let hoursLine = document.getElementById('secondsLine')
-
+    
     let date, seconds, minutes, hours, sec, minute, hour;
 
     setInterval(function () {
