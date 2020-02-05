@@ -1,4 +1,4 @@
-function BallsSVG(svgObj){
+function BallsSVG(svgObj) {
     this.svg = document.getElementById(svgObj);
     let obj = this;
     this.svg.addEventListener('click', event => {
@@ -7,5 +7,4 @@ function BallsSVG(svgObj){
         obj.createBall(event);
     });
     this.items = this.svg.getElementsByTagName("circle");
-
 }

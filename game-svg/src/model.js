@@ -1,6 +1,6 @@
 BallsSVG.prototype.draw = function () {
 
-    for(let i = 0; i <this.items.length; i++ ) {
+    for (let i = 0; i < this.items.length; i++) {
         let x = +this.svg.getElementsByTagName("circle")[i].getAttribute("cx");
         let y = +this.svg.getElementsByTagName("circle")[i].getAttribute("cy");
         let dx = +this.svg.getElementsByTagName("circle")[i].getAttribute("dx");
@@ -24,34 +24,36 @@ BallsSVG.prototype.draw = function () {
 
 };
 
-BallsSVG.prototype.start = function (){
-    setInterval(()=>{this.draw()}, 10);
+BallsSVG.prototype.start = function () {
+    setInterval(() => {
+        this.draw()
+    }, 10);
 };
 
-BallsSVG.prototype.createBall = function (event){
+BallsSVG.prototype.createBall = function (event) {
     let bound = this.svg.getBoundingClientRect();
-    let W=bound.width;
-    let H=bound.height;
+    let W = bound.width;
+    let H = bound.height;
     let x = event.clientX - bound.left - this.svg.clientLeft;
     let y = event.clientY - bound.top - this.svg.clientTop;
     console.log(bound.width);
-    let fi = this.getRandomInt(1,360)*Math.PI/180;
+    let fi = this.getRandomInt(1, 360) * Math.PI / 180;
     let v = 1;
-    let dx = Math.cos(fi)*v;
-    let dy = Math.sin(fi)*v;
+    let dx = Math.cos(fi) * v;
+    let dy = Math.sin(fi) * v;
     let R = 15;
 
     if (x + R >= this.svg.clientWidth - R) {
-        x=this.svg.clientWidth - R;
+        x = this.svg.clientWidth - R;
     }
     if (x + dx <= R) {
-        x=R;
+        x = R;
     }
     if (y + R >= this.svg.clientHeight - R) {
-        y=this.svg.clientHeight - R;
+        y = this.svg.clientHeight - R;
     }
     if (y + dy <= R) {
-        y=R;
+        y = R;
     }
     let svgRect = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     svgRect.setAttributeNS(null, "cx", x);
@@ -64,11 +66,11 @@ BallsSVG.prototype.createBall = function (event){
     document.querySelector("svg").appendChild(svgRect);
 };
 
-BallsSVG.prototype.getRandomInt = function(min, max) {
+BallsSVG.prototype.getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
-BallsSVG.prototype.rndColor = function() {
+BallsSVG.prototype.rndColor = function () {
     let color = '#2FC264';
 
     return color;
